@@ -1,0 +1,23 @@
+name: FunDPS
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - pip
+  - numpy=1.26.4
+  - click>=8.0
+  - pillow>=8.3.1
+  - scipy>=1.7.1
+  - psutil
+  - requests
+  - tqdm
+  - imageio
+  - pip:
+    - imageio-ffmpeg>=0.4.3
+    - pyspng
+    - wandb
+    - datasets
+    - git+https://github.com/neuraloperator/neuraloperator.git@674f3e3ab1c07e5daea87781dc476178508270c2
