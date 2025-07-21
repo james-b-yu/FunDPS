@@ -43,5 +43,5 @@ resume: null  # Resume from previous training state (path to training-state-*.pt
 dry_run: false  # Print training options and exit without training
 
 # Wandb configuration
-wandb: "online"  # Weights & Biases mode (options: online, offline, disabled)
-name: "__required__"  # Wandb run name
+wandb: "disabled"  # Weights & Biases mode (options: online, offline, disabled)
+name: "darcy_no_wandb"  # Wandb run name
