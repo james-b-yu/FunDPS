@@ -47,6 +47,7 @@ class PDESolver:
             max_size=max_size,
             shuffle=False,
             use_labels=False,
+            phase="test",
         )
         self.dataloader = torch.utils.data.DataLoader(
             self.dataset,

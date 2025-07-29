@@ -1,0 +1,47 @@
+# Main options
+outdir: "exps"  # Where to save the results
+data: "data/darcy_jby21/"  # Path to the dataset
+resolution: 64  # Resolution of the dataset after downsampling
+cond: false  # Train class-conditional model
+arch: "ddpmpp-uno"  # Network architecture (options: ddpmpp, ncsnpp, adm, ddpmpp-uno)
+precond: "edm"  # Preconditioning & loss function (options: vp, ve, edm)
+
+# Hyperparameters
+duration: 9  # Training duration in millions of images (200 epochs)
+batch: 32  # Total batch size TODO fit to hpc!
+batch_gpu: null  # Limit batch size per GPU (optional)
+nn_resolution: null  # Resolution of the network, defaults to resolution
+cbase: 64  # Channel multiplier (optional, varies by default)
+cres: [1,2,4,4]  # Channels per resolution (optional, varies by default)
+lr: 5.0e-5  # Learning rate
+lr_rampup: 3.375  # # Learning rate ramp-up duration in millions of images
+ema: 0.175  # EMA half-life in millions of images
+dropout: 0.13  # Dropout probability
+augment: 0.12  # Augment probability
+xflip: false  # Enable dataset x-flips
+
+# Neural Operator-related
+attn_resolutions: [8]  # Resolutions to apply attention
+num_blocks: 4  # Number of blocks in the network
+fmult: 0.5  # Feature multiplier
+rank: 0.1  # Rank of the operator
+rbf_scale: 0.05  # RBF scale
+
+# Performance-related
+fp16: false  # Enable mixed-precision training
+ls: 1  # Loss scaling
+bench: true  # Enable cuDNN benchmarking
+cache: true  # Cache dataset in CPU memory
+workers: 4  # DataLoader worker processes
+
+# I/O-related
+tick: 9  # How often to print progress (in thousands of images)  # 10 times per epoch
+snap: 45  # How often to save snapshots (in ticks) # every epoch
+dump: 45  # How often to dump state (in ticks) # every epoch
+seed: null  # Random seed (optional, random if not specified)
+resume: null  # Resume from previous training state (path to training-state-*.pt file)
+dry_run: false  # Print training options and exit without training
+
+# Wandb configuration
+wandb: "online"  # Weights & Biases mode (options: online, offline, disabled)
+name: "darcy"  # Wandb run name
